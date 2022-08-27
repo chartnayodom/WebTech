@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bar{
+            height: 50px;
+            background-color: blueviolet;
+            margin-top: 2vw;
+            width:10%;
+            color: white;
+            
+        }
+        h3{
+            position: relative;
+            top: 25%;
+            margin-left: 5%;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bar" id="math"><h3>Math</h3></div>
+    <div class="bar" id="thai"><h3>Thai</h3></div>
+    <div class="bar" id="eng"><h3>English</h3></div>
+    <div class="bar" id="sci"><h3>Science</h3></div>
+    <div class="bar" id="social"><h3>Social</h3></div>
+    <button onclick="change()">View Chart</button>
+</body>
+<script>
+    function change(){
+        document.getElementById("math").style.width = "20%";
+        document.getElementById("thai").style.width = "30%";
+        document.getElementById("eng").style.width = "70%";
+        document.getElementById("sci").style.width = "50%";
+        document.getElementById("social").style.width = "90%";
+    }
+</script>
+</html>

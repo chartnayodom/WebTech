@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row mx-2 mt-5">
+            <div class="col-sm-6 bg-lightgrey">
+                <h1>Create your card</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input class="form-control" id="name" placeholder="Enter your name.">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input class="form-control" id="phone" placeholder="Enter your phone number.">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your Email address.">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Company</label>
+                        <input class="form-control" id="company" placeholder="Enter your company.">
+                    </div>
+                    <button onclick="change()"  class="container btn btn-primary">Create</button>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <label class="">your card here</label>
+                <div class="card rounded-lg shadow">
+                    <img class="card-img-top" src="https://lh3.googleusercontent.com/_Hpxv9ppnhv0dMXCSDJjmKbDntNIugQEw0FM-Hl3VlAHdxQJM95DHRcb5U8dvpaDEkNCUsdAYZaO07pvN0zO5JJdm3uHqhJ8PkelS3ylVEjPnKPMhkmo_NrSQh-iAqg-2LL_3GKtZg=w2400" alt="Card image">
+                    <div class="card-img-overlay">
+                        <h4 id="c_name"></h4>
+                        <h6 id="c_phone"></h6>
+                        <h6 id="c_email"></h6>
+                        <h6 id="c_comp"></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function change(){
+        let name = document.getElementById("name").value;
+        let tel = document.getElementById("phone").value;
+        let mail = document.getElementById("email").value;
+        let comp = document.getElementById("company").value;
+        document.getElementById("c_name").innerHTML = name;
+        document.getElementById("c_phone").innerHTML = tel;
+        document.getElementById("c_email").innerHTML = mail;
+        document.getElementById("c_comp").innerHTML = comp;
+    }
+</script>
+</html>
