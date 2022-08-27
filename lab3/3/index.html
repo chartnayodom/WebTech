@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab3-3</title>
+    <style>
+        /* body {
+            display: block;
+        } */
+
+        .row {
+            display: block;
+            margin-left: 26%;
+        }
+        .content{
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="row">
+            <img src="http://10.0.15.20/312lab3/images/1.png" id="imag1">
+            <img src="http://10.0.15.20/312lab3/images/2.png" id="imag2">
+        </div>
+        <div class="row">
+            <img src="http://10.0.15.20/312lab3/images/3.png" id="imag3">
+            <img src="http://10.0.15.20/312lab3/images/4.png" id="imag4">
+        </div>
+        <button onclick="clic()">Click me!</button>
+    </div>
+</body>
+
+</html>
+<script>
+    let a = 0;
+    b = [1, 3, 4, 2];
+    function clic() {
+        a++;
+        document.getElementById('imag1').src = "http://10.0.15.20/312lab3/images/" + b[a % 4] + ".png";
+        document.getElementById('imag2').src = "http://10.0.15.20/312lab3/images/" + b[(a + 3) % 4] + ".png";
+        document.getElementById('imag3').src = "http://10.0.15.20/312lab3/images/" + b[(a + 1) % 4] + ".png";
+        document.getElementById('imag4').src = "http://10.0.15.20/312lab3/images/" + b[(a + 2) % 4] + ".png";
+    }
+
+</script>
