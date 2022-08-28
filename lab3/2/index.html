@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
-    <title>Lab3_1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
+    
+    <title>Lab3_2</title>
     <style>
-        *{
+        * {
             font-family: 'Mitr', sans-serif;
         }
     </style>
@@ -26,7 +27,7 @@
             </div>
             <div class="row mt-3">
                 <label>ชื่อ: </label>
-                <select id="title" placeholde="คำนำนหน้า" class="col-2">
+                <select id="title" placeholder="คำนำหน้า" class="col-2">
                     <option value="นาย">นาย</option>
                     <option value="นาง">นาง</option>
                     <option value="นางสาว">นางสาว</option>
@@ -41,7 +42,7 @@
                 <input id="address" class="form-control col" placeholder="ที่อยู่">
             </div>
             <div class="row mt-2">
-                <input id="sub_dist" class="form-control col-sm" placeholder="ตำบล/แขวง">
+                <input id="sub_dist" class="form-control col-sm mt-2" placeholder="ตำบล/แขวง">
                 <input id="district" class="form-control col-sm mt-2" placeholder="อำเภอ/เขต">
                 <select class="col-sm mt-2" name="province">
                     <option value="" selected>--------- เลือกจังหวัด ---------</option>
@@ -129,39 +130,5 @@
         </form>
     </div>
 </body>
-<script>
-    function check(){
-        let p_id = document.getElementById("p_id");
-        let title = document.getElementById("title");
-        let name = document.getElementById("name");
-        let sname = document.getElementById("surname");
-        let addr = document.getElementById("address");
-        let s_dist = document.getElementById("sub_dist");
-        let dist = document.getElementById("district");
-        let province = document.getElementsByName("province");
-        let p_code = document.getElementById("postcode");
-        if (p_id.length != 13){
-            alert("โปรดกรอกให้ครบ 13 หลักเท่านั้น")
-        }
-        if (name.length < 2 && name.length > 20){
-            alert("โปรดกรอกชื่อ")
-        }
-        if (sname.length < 2 && sname.length > 20){
-            alert("โปรดกรอกนามสกุล")
-        }
-        if (addr.length < 5){
-            alert("โปรดกรอกทีั่อยู่โดยละเอียด")
-        }
-        if (s_dist.length < 2){
-            alert("โปรดกรอกแขวง")
-        }
-        if (dist.length < 2){
-            alert("โปรดกรอกเขต")
-        }
-        if (p_code.length != 5){
-            alert("โปรดกรอกรหัสไปรษณีย์ 5 หลัก")
-        }
-    }
-</script>
-
+<script src="validation.js"></script>
 </html>
