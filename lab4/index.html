@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <p id="p1">This is paragraph</p>
+    </div>
+    <!--
+สร้าง Element node ที่เหมือนกับ Element Tag นี้
+ <p>This is a new node</p>
+-->
+
+
+    <!-- สร้าง list ที่ เป็นรายชื่อวันในสัปดาห์  -->
+    <!-- <ol>
+        <li></li>
+    </ol> -->
+
+
+    <script>
+        let days = ["Sunday", "Monday", "Tueday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+        let pElement = document.createElement("p");
+        let text = document.createTextNode("This is a new node");
+        pElement.appendChild(text);
+        document.body.appendChild(pElement);
+        // เขียน code ไปพร้อมกัน ^__^ 
+        // 
+
+
+        // สร้าง list
+        // 1.Sunday
+        // 2.Monday
+        // ........
+        let olist = document.createElement("ol");
+        
+        for (i = 0; i < days.length; i++) {
+            let li = document.createElement("li");
+            let text1 = document.createTextNode(days[i]);
+            li.appendChild(text1);
+            olist.appendChild(li);
+            
+        }
+        document.body.appendChild(olist);
+    </script>
+</body>
+
+</html>
