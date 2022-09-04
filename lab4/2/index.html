@@ -1,11 +1,91 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Lab4_2</title>
+
 </head>
+
 <body>
-    
+    <form>
+        <div id="1">
+            <label id="laname" class="font-weight-bold">ชื่อ:</label>
+            <input id="name">
+        </div>
+        <div id="2">
+            <label id="lasur" class="font-weight-bold">นามสกุล:</label>
+            <input id="name">
+        </div>
+        <div id="3">
+            <label id="lacon" class="font-weight-bold">ประเทศ:</label>
+            <select name="sel_c">
+                <option value="c0" selected>เลือกประเทศ</option>
+                <option value="c1">ไทย</option>
+                <option value="c2">เวียดนาม</option>
+                <option value="c3">ลาว</option>
+                <option value="c4">มาเลเซีย</option>
+                <option value="c5">สิงค์โปร์</option>
+                <option value="c6">ฟิลิปปินส์</option>
+                <option value="c7">เมียนมาร์</option>
+                <option value="c8">กัมพูชา</option>
+                <option value="c9">บรูไน</option>
+            </select>
+        </div>
+
+    </form>
+    <div id="4">
+        <button id="changeLang" onclick="changeLanguage()">เปลี่ยนเป็นอังกฤษ</button>
+    </div>
 </body>
+<script>
+    let lang = 0;
+    let coun = [
+        ["เลือกประเทศ", "Select a country"],
+        ["ไทย", "Thailand"],
+        ["เวียดนาม", "Vietnam"],
+        ["ลาว", "Laos"],
+        ["มาเลเซีย", "Malaysia"],
+        ["สิงค์โปร์", "Singapore"],
+        ["ฟิลิปปินส์", "Philippines"],
+        ["เมียนมาร์", "Myanmar"],
+        ["กัมพูชา", "Cambodia"],
+        ["บรูไน", "Brunei"],
+        // ["", ""],
+    ]
+    let labels = [["ชื่อ:", "First Name:"], ["นามสกุล:", "Last Name:"], ["ประเทศ:", "Country:"], ["เปลี่ยนเป็นอังกฤษ", "Change to Thai"]];
+    function changeLanguage() {
+        // let form = document.getElementsByTagName("form");
+        let l_name = document.getElementById("laname");
+        let l_sur = document.getElementById("lasur");
+        let l_con = document.getElementById("lacon");
+        let chb = document.getElementById("changeLang");
+        // document.getElementById("1").removeChild(l_name);
+        let labeln = document.createTextNode(labels[0][lang % 2]);
+        l_name.replaceChildren(labeln);
+        labeln = document.createTextNode(labels[1][lang % 2]);
+        l_sur.replaceChildren(labeln);
+        labeln = document.createTextNode(labels[2][lang % 2]);
+        l_con.replaceChildren(labeln);
+        labeln = document.createTextNode(labels[3][lang % 2]);
+        chb.replaceChildren(labeln);
+
+        let c_n = document.getElementsByName("sel_c")[0];
+        c_n.options[0].innerHTML = coun[0][lang % 2];
+        c_n.options[1].innerHTML = coun[1][lang % 2];
+        c_n.options[2].innerHTML = coun[2][lang % 2];
+        c_n.options[3].innerHTML = coun[3][lang % 2];
+        c_n.options[4].innerHTML = coun[4][lang % 2];
+        c_n.options[5].innerHTML = coun[5][lang % 2];
+        c_n.options[6].innerHTML = coun[6][lang % 2];
+        c_n.options[7].innerHTML = coun[7][lang % 2];
+        c_n.options[8].innerHTML = coun[8][lang % 2];
+        c_n.options[9].innerHTML = coun[9][lang % 2];
+        lang++;
+    }
+</script>
+
 </html>

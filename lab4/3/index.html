@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
+    <title>Lab4_3</title>
+    <style>
+        th {
+            background-color: lightgrey;
+            padding: 1vw;
+        }
+
+        * {
+            font-family: 'Mitr', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="">
+        <input id="s_id" placeholder="รหัสนักศึกษา">
+        <input id="name" placeholder="ชื่อ">
+        <input id="s_name" placeholder="นามสกุล">
+        <button onclick="add_stu()">ลงทะเบียน</button>
+    </div>
+    <div>
+        <table id="form">
+            <tr>
+                <th>ลำดับที่</th>
+                <th>รหัสนักศึกษา</th>
+                <th>ชื่อ</th>
+                <th>นามสกุล</th>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    let run_no = 1;
+    function add_stu() {
+        let name = document.getElementById("name").value;
+        let sname = document.getElementById("s_name").value;
+        let id_s = document.getElementById("s_id").value;
+        let form = document.getElementById("form");
+        let row = form.insertRow(-1);
+        let n_o = row.insertCell(0).innerHTML = run_no;
+        let r_id = row.insertCell(1).innerHTML = id_s;
+        let r_n = row.insertCell(2).innerHTML = name;
+        let r_sn = row.insertCell(3).innerHTML = sname;
+
+        run_no++;
+    }   
+</script>
+
+</html>
