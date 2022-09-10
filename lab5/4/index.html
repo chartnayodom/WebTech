@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Lab5_4</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center" id="row">
+            <!-- <div class="card mx-2" style="">
+                <img src="http://10.0.15.20/lab5/posters/mother.jpg" alt="moviespic">
+                <div class="card-body justify-content-center text-center">
+                    <h4>Movies</h4>
+                    <p>Release date</p>
+                    <button class="button-primary">buy a ticket</button>
+                </div>
+            </div>
+            <div class="card mx-2" style="">
+                <img src="http://10.0.15.20/lab5/posters/mother.jpg" alt="moviespic">
+                <div class="card-body justify-content-center text-center">
+                    <h4>Movies</h4>
+                    <p>Release date</p>
+                    <button class="button-primary">buy a ticket</button>
+                </div>
+            </div>
+            <div class="card mx-2">
+                <img src="http://10.0.15.20/lab5/posters/mother.jpg" alt="moviespic">
+                <div class="card-body justify-content-center text-center">
+                    <h4>Movies</h4>
+                    <p>Release date</p>
+                    <button class="btn btn-primary">buy a ticket</button>
+                </div>
+            </div> -->
+            
+        </div>
+    </div>
+</body>
+<script>
+    let row = document.getElementById("row");
+    
+
+    let requestURL = 'movies.json'; //เรียกตัวแปรfile json ที่จะเรียก 
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            ExtractData(JSON.parse(request.responseText));
+        }
+    };
+    request.open("GET", requestURL, true);
+    request.send();
+
+    function ExtractData(data) {
+        for (let shm = 0; shm <= data.movies.showing.length; shm++){
+            // document.write(data.movies.showing.poster);
+            row.innerHTML += '<div class="card-sm-3 mx-3 justify-content-center">\
+                <img src="'+ data.movies.showing[shm].poster +'" alt="moviespic">\
+                <div class="card-body justify-content-center text-center">\
+                    <h4>'+ data.movies.showing[shm].title_th +'</h4>\
+                    <p>'+ data.movies.showing[shm].releasedate +'</p>\
+                    <button class="btn btn-primary">buy a ticket</button>\
+                </div>';
+        }
+        
+    }
+</script>
+
+</html>

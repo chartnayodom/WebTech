@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab5_2</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let requestURL = 'questionAnswerData.json'; //เรียกตัวแปรfile json ที่จะเรียก 
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            ExtractData(JSON.parse(request.responseText));
+        }
+    };
+    request.open("GET", requestURL, true);
+    request.send();
+
+    function ExtractData(data) {
+        document.write("<h1>Quiz 1</h1>");
+        for (let q = 0; q <= data.length; q++) {
+            let question = data[q].question;
+            let ans = data[q].answers;
+            document.write("<div>\
+            <h3>"+ (q+1) + ") " + question + "</h3>");
+            // let answ = data[q].answers;
+            
+            // for (let a of data[q]){
+            
+            document.write('<input id="'+('a'+q)+'"type="radio" value="' + ans.a +'">\
+            <label>'+ans.a+'</label><br>');
+            document.write('<input id="'+('b'+q)+'"type="radio" value="' + ans.b +'">\
+            <label>'+ans.b+'</label><br>');
+            document.write('<input id="'+('c'+q)+'"type="radio" value="' + ans.c +'">\
+            <label>'+ans.c+'</label><br>');
+            //     document.write(as);
+            // }
+            document.write("</div>");
+            if(ans.correct == 'a'){
+                document.getElementById('a'+q).checked = true;
+            }
+            if(ans.correct == 'b'){
+                document.getElementById('b'+q).checked = true;
+            }
+            if(ans.correct == 'c'){
+                document.getElementById('c'+q).checked = true;
+            }
+        }
+    }
+</script>
+
+</html>
