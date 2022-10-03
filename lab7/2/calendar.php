@@ -1,67 +1,27 @@
 <?php
-    // $d = strtotime("January 2022");
-    // echo date("Y-m-d-D h:i:sa", $d);
-    echo "<tr>";
-    $i = -6;
-    // if (date("D,$d") == "Sat"){
-    for($i;$i <=1 ;$i++){
-        if($i % 7 == 0 and $i <= 0){
-            ++$i;
-            echo "<td>$i</td>";
-            echo "</tr>";
-            echo "<tr>";
-            // ++$i;
-            // continue;
-            break;
+    $month = strtotime("January 2022");
+    $day_count = date('t',$month);
+    // echo $day_count;
+    $weeks = array();
+    $week = '';
+    $str = date('w', mktime(0, 0, 0, date('m', $month), 1, date('Y', $month)));
+
+    $week .= str_repeat('<td></td>', $str);
+    for ($day = 1; $day <= $day_count; $day++,$str++){
+        $week .= '<td>' . $day;
+        $week .= '</td>';
+         
+        if ($str % 7 == 6 || $day == $day_count) {
+
+        if ($day == $day_count) {
+            
+            $week .= str_repeat('<td></td>', 6 - ($str % 7));
         }
-        else if($i % 7 == 0 and $i > 0){
-            echo "<td>$i</td>";
-            echo "</tr>";
-            echo "<tr>";
-            break;
-        }
-        if($i<0){
-            echo "<td>&nbsp</td>";
-        }
-        if($i>0){
-            echo "<td>$i</td>";
-        }
-    }
-    // $i = 2;
-    echo $i;
-    // }
-    for($i=2;$i<=31;$i++){
+
+        $weeks[] = '<tr>' . $week . '</tr>';
+
         
-        // if($i % 7 == 0 and $i <=7 ){
-        //     $i += 1;
-        //     echo "<td>$i</td>";
-        //     echo "</tr>";
-        // }
-        if($i % 8 == 0 and $i <= 0){
-            ++$i;
-            echo "<td>$i</td>";
-            echo "</tr>";
-            echo "<tr>";
-            // ++$i;
-            continue;
+        $week = '';
         }
-        else if($i % 8 == 0 and $i > 0){
-            echo "<td>$i</td>";
-            echo "</tr>";
-            echo "<tr>";
-            continue;
-        }
-        
-        if($i<0){
-            echo "<td>&nbsp</td>";
-        }
-        if($i>0){
-            echo "<td>$i</td>";
-        }
-        
-        
-        // if($i % 7 == 6){
-        //     echo "</tr>";
-        // }
     }
 ?>
