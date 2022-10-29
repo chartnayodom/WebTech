@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <title>Lab10_1</title>
+    <style>
+        .form{
+            font-family: 'kanit', sans-serif;
+            margin: 1rem;
+            padding: 0.5rem;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="form">
+            <label for="dest">Destination: </label>
+            <input type="text" name="dest" id="dest">
+            <button onclick="getPlace()">ไปยังจุดหมาย</button>
+        </div>
+        <div class="form">
+            <label for="lat">Latitude: </label>
+            <input type="text" name="lat" id="lat">
+            <label for="long">Longitude: </label>
+            <input type="text" name="long" id="long">
+            <button onclick="getLatLong()">ไปยังจุดหมาย</button>
+        </div>
+        <iframe id="map" 
+        width="100%" 
+        height="750" 
+        src="https://maps.google.com/maps?q=&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        frameborder="0" 
+        allowfullscreen>
+</iframe>
+    </div>
+    <script>
+        function getLatLong() {
+            var pos = {
+                'lat': document.getElementById('lat').value,
+                'long': document.getElementById('long').value
+            };
+            console.log(pos);
+            document.getElementById('map').src = 'https://maps.google.com/maps?q=' + pos.lat + ', ' + pos.long + '&t=&z=15&ie=UTF8&iwloc=&output=embed';
+        }
+        function getPlace(){
+            var place = document.getElementById('dest').value;
+            console.log(place);
+            document.getElementById('map').src= 'https://maps.google.com/maps?q='+ place + '&t=&z=15&ie=UTF8&iwloc=&output=embed';
+        }
+    </script>
+</body>
+
+</html>
